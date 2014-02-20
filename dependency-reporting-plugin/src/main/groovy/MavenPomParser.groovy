@@ -12,7 +12,7 @@ class MavenPomParser {
 
 				dependenciesGroupedByModule[module] = [] as Set
 
-				dependencies.findAll{ it.artifactId ==~ projectRegex && (it.artifactId ==~ dependencyRegex || module ==~ dependencyRegex) }.each { dependency ->
+				dependencies.findAll{ it.groupId ==~ projectRegex && (it.artifactId ==~ dependencyRegex || module ==~ dependencyRegex) }.each { dependency ->
 					dependenciesGroupedByModule[module] << dependency.artifactId.toString()
 				}
 			}
